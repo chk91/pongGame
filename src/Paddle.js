@@ -9,8 +9,7 @@ export default class Paddle {
         this.keys = keys;
         document.addEventListener('keydown', event => this.keyListener(event));
     }
-    wallBounce() {
-    }
+    
     keyListener(event) {
         switch (event.keyCode) {
             case this.keys.up:
@@ -25,17 +24,17 @@ export default class Paddle {
 
     moveUp() {
         console.log('up')
-        if (this.y >= 2){
+        if (this.y - this.speed >= 0){
             this.y -= this.speed;}
     }
 
     moveDown() {
-        if (this.y <= 95){
+        if (this.y + this.speed <= 100){
         
         this.y += this.speed;}
     }
 
-    render(context) { // What is ctx? Where does it come from?
+    render(context) { 
         context.fillStyle = this.color;
         context.fillRect(
             this.x, this.y,

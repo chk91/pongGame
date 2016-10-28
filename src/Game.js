@@ -16,12 +16,12 @@ export default class Game {
         this.board = new Board(this.height, this.width);
         this.p1 = new Paddle(this.height, 5, 'yellow', player1Keys)
         this.p2 = new Paddle(this.height, this.width - 10, 'blue', player2Keys)
-        this.ball = new Ball(this.height/2, this.width/2, this.size,5, 'blue');
+        this.ball = new Ball(this.height, this.width);
     }
     render() {
         this.board.render(this.context);
         this.p1.render(this.context);
         this.p2.render(this.context);
-        this.ball.render(this.context);
+        this.ball.render(this.context, this.p1, this.p2);
     }
 }
