@@ -31,7 +31,7 @@ export default class Ball {
         const hitTop = this.y - this.size <= 0;
         const hitBottom = this.y >= this.boardHeight - this.size;
         if (hitLeft || hitRight) {
-            this.vx *= -1
+            
         }
 
         if (hitTop || hitBottom) {
@@ -46,13 +46,32 @@ export default class Ball {
     }
 
     score(p1Score, p2Score) {
+        
         if (this.x <= 0 + this.size) {
+            console.log(this.x);
             this.reset();
-            p1Score.score++;
+            // p1Score.score++;
         }
         else if (this.x >= game.width) {
             this.reset();
-            p2Score.score++;
+            // p2Score.score++;
+        }
+    }
+
+    goal(p1, p2) {
+        if (this.x <= 0 + this.size) {
+            p2.score += 1;
+            this.reset();
+            this.x = (this.boardWidth / 2);
+            this.y = (this.boardHeight / 2);
+            
+        }
+        if (this.x >= this.boardWidth - this.size) {
+             p1.score += 1;
+            this.reset();
+            this.x = (this.boardWidth / 2);
+            this.y = (this.boardHeight / 2);
+       
         }
     }
 
@@ -76,11 +95,14 @@ export default class Ball {
         }
     }
 
-    render(context, p1, p2) {
+    render(context, p1, p2, p1Score, p2Score) {
         this.move();
-        this.draw(context);
+        this.goal(p1,p2);
         this.bounce();
         this.paddleCollision(p1, p2);
+        this.score(p1Score,p2Score);
+        this.draw(context);
+        
     }
 }
 

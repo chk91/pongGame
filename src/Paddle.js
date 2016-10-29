@@ -1,6 +1,7 @@
 export default class Paddle {
     constructor(boardHeight, x, color, keys) {
         this.width = 5;
+        this.score = 0;
         this.height = 50;
         this.speed = 5;
         this.color = color;
@@ -9,7 +10,7 @@ export default class Paddle {
         this.keys = keys;
         document.addEventListener('keydown', event => this.keyListener(event));
     }
-    
+
     keyListener(event) {
         switch (event.keyCode) {
             case this.keys.up:
@@ -24,17 +25,19 @@ export default class Paddle {
 
     moveUp() {
         console.log('up')
-        if (this.y - this.speed >= 0){
-            this.y -= this.speed;}
+        if (this.y - this.speed >= 0) {
+            this.y -= this.speed;
+        }
     }
 
     moveDown() {
-        if (this.y + this.speed <= 100){
-        
-        this.y += this.speed;}
+        if (this.y + this.speed <= 100) {
+
+            this.y += this.speed;
+        }
     }
 
-    render(context) { 
+    render(context) {
         context.fillStyle = this.color;
         context.fillRect(
             this.x, this.y,
