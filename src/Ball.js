@@ -26,23 +26,27 @@ export default class Ball {
     }
 
     bounce() {
-        const hitLeft = this.x + this.size >= this.boardWidth;
+        const hitLeft = this.x - this.size >= this.boardWidth;
         const hitRight = this.x - this.size <= 0;
         const hitTop = this.y - this.size <= 0;
         const hitBottom = this.y >= this.boardHeight - this.size;
         if (hitLeft || hitRight) {
-            
+            this.vx *= -1
+            var ping = new Audio('../sounds/pong-01.wav')
+            ping.play()
         }
 
         if (hitTop || hitBottom) {
             this.vy *= -1
+            var ping = new Audio('../sounds/pong-01.wav')
+            ping.play()
         }
     }
 
     reset() {
         this.x = 150;
         this.y = 75;
-        this.vx *= -1;
+        // this.vx *= -1;
     }
 
     score(p1Score, p2Score) {
@@ -83,6 +87,8 @@ export default class Ball {
             if (this.y >= p1.y && this.y <= p1.y + p1.height) {
                 console.log('ass')
                 this.vx *= -1
+                var ping = new Audio('../sounds/pong-02.wav')
+                ping.play()
             }
         }
         const rightSide = this.x >= p2.x - this.size;
@@ -91,6 +97,8 @@ export default class Ball {
             if (this.y >= p2.y && this.y <= p2.y + p2.height) {
                 console.log('asshole')
                 this.vx *= -1
+                var ping = new Audio('../sounds/pong-03.wav')
+                ping.play()
             }
         }
     }
