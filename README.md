@@ -1,26 +1,2 @@
-# Pong Game
-
-A basic pong game using HTML5 Canvas.
-
-## Setup
-
-##### Install
-
-`> npm i`
-
-##### Run
-
-`> npm start`
-
-## Keys
-
-##### Player 1:
-* a: up
-* z: down
-* q: fire a new ball
-
-##### Player 2:
-* ▲ : up
-* ▼: down
-* /: fire a new ball
-# pongGame
+## Pong Game
+Pong game using HTML5 canvas and Javascript. Just a simple pong game that does not have further features yet but will be adding in later date.
