@@ -18,6 +18,7 @@ export default class Game {
         this.p1 = new Paddle(this.height, 5, 'yellow', player1Keys)
         this.p2 = new Paddle(this.height, this.width - 10, 'blue', player2Keys)
         this.ball = new Ball(this.height, this.width);
+        this.ball2 = new Ball(this.height, this.width);
         this.score = new ScoreBoard(225, 85);
     }
     render() {
@@ -25,8 +26,8 @@ export default class Game {
         this.p1.render(this.context);
         this.p2.render(this.context);
         this.score.render(this.context,this.p1, this.p2);
-
         this.ball.render(this.context, this.p1, this.p2, this.p1Score, this.p2Score);
+        this.ball2.render(this.context, this.p1, this.p2, this.p1Score, this.p2Score)
 
     }
 }
